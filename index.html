@@ -181,7 +181,7 @@
 
       /* ── Aggregate across all months (Lifetime) ── */
       function getLifetimeData() {
-        let leads = 0, replies = 0, positives = 0, leadsToday = 0, repliesToday = 0, positivesToday = 0;
+        let leads = 0, replies = 0, positives = 0, emailsSent = 0, leadsToday = 0, repliesToday = 0, positivesToday = 0;
         const stratMap = {};
         const allDateRanges = [];
         for (const key of monthKeys) {
@@ -189,17 +189,19 @@
           leads += m.overview.leads;
           replies += m.overview.replies;
           positives += m.overview.positives;
+          emailsSent += (m.overview.emailsSent || 0);
           leadsToday += m.overview.leadsToday;
           repliesToday += m.overview.repliesToday;
           positivesToday += m.overview.positivesToday;
           if (m.dateRange) allDateRanges.push(m.dateRange);
           for (const s of m.strategy) {
             if (!stratMap[s.name]) {
-              stratMap[s.name] = { name: s.name, leads: 0, replies: 0, positives: 0, leadsToday: 0, repliesToday: 0, positivesToday: 0 };
+              stratMap[s.name] = { name: s.name, leads: 0, replies: 0, positives: 0, emailsSent: 0, leadsToday: 0, repliesToday: 0, positivesToday: 0 };
             }
             stratMap[s.name].leads += s.leads;
             stratMap[s.name].replies += s.replies;
             stratMap[s.name].positives += s.positives;
+            stratMap[s.name].emailsSent += (s.emailsSent || 0);
             stratMap[s.name].leadsToday += s.leadsToday;
             stratMap[s.name].repliesToday += s.repliesToday;
             stratMap[s.name].positivesToday += s.positivesToday;
@@ -217,7 +219,7 @@
         return {
           label: 'Lifetime',
           dateRange: dateRange,
-          overview: { leads, replies, positives, leadsToday, repliesToday, positivesToday },
+          overview: { leads, replies, positives, emailsSent, leadsToday, repliesToday, positivesToday },
           strategy: Object.values(stratMap)
         };
       }
@@ -332,7 +334,7 @@
               <div class="metric-card">
                 <div class="metric-value">${fmt(ov.leads)}</div>
                 <div class="metric-label">Leads Contacted</div>
-                <div class="metric-subtext good">total volume</div>
+                <div class="metric-subtext good">${fmt(ov.emailsSent || 0)} emails sent</div>
               </div>
               <div class="metric-card">
                 <div class="metric-value">${fmt(ov.replies)}</div>
