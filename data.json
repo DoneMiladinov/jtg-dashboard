@@ -1,15 +1,17 @@
 {
   "client": "JT Global",
-  "lastUpdated": "2026-02-09T20:39:33Z",
+  "lastUpdated": "2026-02-09T21:32:44Z",
+  "monthCycle": "9th to 8th",
   "months": {
-    "2026-01": {
-      "label": "January 2026",
+    "M1": {
+      "label": "Month 1",
+      "dateRange": "Jan 9 - Feb 8, 2026",
       "overview": {
-        "leads": 7578,
-        "replies": 285,
-        "positives": 8,
-        "leadsToday": 748,
-        "repliesToday": 4,
+        "leads": 9038,
+        "replies": 304,
+        "positives": 10,
+        "leadsToday": 1291,
+        "repliesToday": 5,
         "positivesToday": 0
       },
       "strategy": [
@@ -59,6 +61,33 @@
           "positivesToday": 0
         },
         {
+          "name": "S2a1",
+          "leads": 591,
+          "replies": 10,
+          "positives": 1,
+          "leadsToday": 250,
+          "repliesToday": 0,
+          "positivesToday": 0
+        },
+        {
+          "name": "S2a2",
+          "leads": 434,
+          "replies": 3,
+          "positives": 0,
+          "leadsToday": 186,
+          "repliesToday": 0,
+          "positivesToday": 0
+        },
+        {
+          "name": "S2a3",
+          "leads": 435,
+          "replies": 6,
+          "positives": 1,
+          "leadsToday": 107,
+          "repliesToday": 1,
+          "positivesToday": 0
+        },
+        {
           "name": "S2b",
           "leads": 684,
           "replies": 22,
@@ -91,46 +120,6 @@
           "replies": 24,
           "positives": 1,
           "leadsToday": 52,
-          "repliesToday": 1,
-          "positivesToday": 0
-        }
-      ]
-    },
-    "2026-02": {
-      "label": "February 2026",
-      "overview": {
-        "leads": 1458,
-        "replies": 19,
-        "positives": 2,
-        "leadsToday": 534,
-        "repliesToday": 1,
-        "positivesToday": 0
-      },
-      "strategy": [
-        {
-          "name": "S2a1",
-          "leads": 591,
-          "replies": 10,
-          "positives": 1,
-          "leadsToday": 243,
-          "repliesToday": 0,
-          "positivesToday": 0
-        },
-        {
-          "name": "S2a2",
-          "leads": 432,
-          "replies": 3,
-          "positives": 0,
-          "leadsToday": 184,
-          "repliesToday": 0,
-          "positivesToday": 0
-        },
-        {
-          "name": "S2a3",
-          "leads": 435,
-          "replies": 6,
-          "positives": 1,
-          "leadsToday": 107,
           "repliesToday": 1,
           "positivesToday": 0
         }

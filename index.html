@@ -183,6 +183,7 @@
       function getLifetimeData() {
         let leads = 0, replies = 0, positives = 0, leadsToday = 0, repliesToday = 0, positivesToday = 0;
         const stratMap = {};
+        const allDateRanges = [];
         for (const key of monthKeys) {
           const m = DATA.months[key];
           leads += m.overview.leads;
@@ -191,6 +192,7 @@
           leadsToday += m.overview.leadsToday;
           repliesToday += m.overview.repliesToday;
           positivesToday += m.overview.positivesToday;
+          if (m.dateRange) allDateRanges.push(m.dateRange);
           for (const s of m.strategy) {
             if (!stratMap[s.name]) {
               stratMap[s.name] = { name: s.name, leads: 0, replies: 0, positives: 0, leadsToday: 0, repliesToday: 0, positivesToday: 0 };
@@ -203,8 +205,18 @@
             stratMap[s.name].positivesToday += s.positivesToday;
           }
         }
+        // Build lifetime date range from first start to last end
+        let dateRange = '';
+        if (allDateRanges.length === 1) {
+          dateRange = allDateRanges[0];
+        } else if (allDateRanges.length > 1) {
+          const first = allDateRanges[0].split(' - ')[0];
+          const last = allDateRanges[allDateRanges.length - 1].split(' - ')[1];
+          dateRange = first + ' - ' + last;
+        }
         return {
           label: 'Lifetime',
+          dateRange: dateRange,
           overview: { leads, replies, positives, leadsToday, repliesToday, positivesToday },
           strategy: Object.values(stratMap)
         };
@@ -252,7 +264,8 @@
         // Month pills
         let pills = '<div class="month-pill' + (monthKey === 'lifetime' ? ' active' : '') + '" data-month="lifetime">Lifetime</div>';
         for (const k of monthKeys) {
-          pills += '<div class="month-pill' + (monthKey === k ? ' active' : '') + '" data-month="' + k + '">' + DATA.months[k].label + '</div>';
+          const mLabel = DATA.months[k].label + (DATA.months[k].dateRange ? ' (' + DATA.months[k].dateRange + ')' : '');
+          pills += '<div class="month-pill' + (monthKey === k ? ' active' : '') + '" data-month="' + k + '">' + mLabel + '</div>';
         }
 
         // Totals for table footer
@@ -305,8 +318,8 @@
               <span class="client-name">${DATA.client}</span>
             </div>
             <div class="header-right">
-              <div class="report-label">Campaign Insights</div>
-              <div class="date-range">${parseDate(DATA.lastUpdated)}</div>
+              <div class="report-label">${d.label} Campaign Insights</div>
+              <div class="date-range">${d.dateRange || parseDate(DATA.lastUpdated)}</div>
             </div>
           </header>
 
