@@ -296,7 +296,7 @@
           const pp = pctNum(s.positives, s.replies);
           const rpBadge = badgeClass(rp, replyPcts);
           const ppBadge = badgeClass(pp, posPcts);
-          const leadsPerReply = s.replies > 0 ? Math.round(s.leads / s.replies) : '—';
+          const leadsPerPositive = s.positives > 0 ? fmt(Math.round(s.leads / s.positives)) : '—';
           tableRows += '<tr>' +
             '<td>' + s.name + '</td>' +
             '<td class="numeric">' + fmt(s.leads) + '</td>' +
@@ -304,7 +304,7 @@
             '<td class="numeric"><span class="badge ' + rpBadge + '">' + pct(s.replies, s.leads) + '</span></td>' +
             '<td class="numeric">' + fmt(s.positives) + '</td>' +
             '<td class="numeric"><span class="badge ' + ppBadge + '">' + pct(s.positives, s.replies) + '</span></td>' +
-            '<td class="numeric">' + leadsPerReply + '</td>' +
+            '<td class="numeric">' + leadsPerPositive + '</td>' +
             '</tr>';
         }
 
@@ -357,8 +357,8 @@
                 <div class="metric-subtext good">replies / leads</div>
               </div>
               <div class="metric-card">
-                <div class="metric-value">${totReplies > 0 ? Math.round(totLeads / totReplies) : '—'}</div>
-                <div class="metric-label">Leads / Reply</div>
+                <div class="metric-value">${totPositives > 0 ? fmt(Math.round(totLeads / totPositives)) : '—'}</div>
+                <div class="metric-label">Leads / Positive</div>
                 <div class="metric-subtext good">efficiency ratio</div>
               </div>
             </div>
@@ -386,7 +386,7 @@
                   <th class="numeric" data-sort="percent" data-col="3">Reply % <span class="sort-icon">&#9660;</span></th>
                   <th class="numeric" data-sort="number" data-col="4">Positives <span class="sort-icon">&#9660;</span></th>
                   <th class="numeric" data-sort="percent" data-col="5">Pos % <span class="sort-icon">&#9660;</span></th>
-                  <th class="numeric" data-sort="number" data-col="6">Leads/Reply <span class="sort-icon">&#9660;</span></th>
+                  <th class="numeric" data-sort="number" data-col="6">Leads/Positive <span class="sort-icon">&#9660;</span></th>
                 </tr></thead>
                 <tbody>${tableRows}</tbody>
                 <tfoot><tr>
@@ -396,7 +396,7 @@
                   <td class="numeric">${pct(totReplies, totLeads)}</td>
                   <td class="numeric">${fmt(totPositives)}</td>
                   <td class="numeric">${pct(totPositives, totReplies)}</td>
-                  <td class="numeric">${totReplies > 0 ? Math.round(totLeads / totReplies) : '—'}</td>
+                  <td class="numeric">${totPositives > 0 ? fmt(Math.round(totLeads / totPositives)) : '—'}</td>
                 </tr></tfoot>
               </table>
             </div></div>
