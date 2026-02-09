@@ -272,8 +272,6 @@
         const totLeads = strats.reduce((s, r) => s + r.leads, 0);
         const totReplies = strats.reduce((s, r) => s + r.replies, 0);
         const totPositives = strats.reduce((s, r) => s + r.positives, 0);
-        const totLeadsToday = strats.reduce((s, r) => s + r.leadsToday, 0);
-        const totRepliesToday = strats.reduce((s, r) => s + r.repliesToday, 0);
 
         // Positive rate chart bars
         let posChartBars = '';
@@ -298,6 +296,7 @@
           const pp = pctNum(s.positives, s.replies);
           const rpBadge = badgeClass(rp, replyPcts);
           const ppBadge = badgeClass(pp, posPcts);
+          const leadsPerReply = s.replies > 0 ? Math.round(s.leads / s.replies) : '—';
           tableRows += '<tr>' +
             '<td>' + s.name + '</td>' +
             '<td class="numeric">' + fmt(s.leads) + '</td>' +
@@ -305,8 +304,7 @@
             '<td class="numeric"><span class="badge ' + rpBadge + '">' + pct(s.replies, s.leads) + '</span></td>' +
             '<td class="numeric">' + fmt(s.positives) + '</td>' +
             '<td class="numeric"><span class="badge ' + ppBadge + '">' + pct(s.positives, s.replies) + '</span></td>' +
-            '<td class="numeric">' + fmt(s.leadsToday) + '</td>' +
-            '<td class="numeric">' + fmt(s.repliesToday) + '</td>' +
+            '<td class="numeric">' + leadsPerReply + '</td>' +
             '</tr>';
         }
 
@@ -359,12 +357,9 @@
                 <div class="metric-subtext good">replies / leads</div>
               </div>
               <div class="metric-card">
-                <div class="metric-value">Today</div>
-                <div class="metric-label">Today's Activity</div>
-                <div class="today-detail">
-                  <span>+${fmt(ov.leadsToday)}</span> leads &nbsp;&bull;&nbsp;
-                  <span>+${fmt(ov.repliesToday)}</span> replies
-                </div>
+                <div class="metric-value">${totReplies > 0 ? Math.round(totLeads / totReplies) : '—'}</div>
+                <div class="metric-label">Leads / Reply</div>
+                <div class="metric-subtext good">efficiency ratio</div>
               </div>
             </div>
           </section>
@@ -391,8 +386,7 @@
                   <th class="numeric" data-sort="percent" data-col="3">Reply % <span class="sort-icon">&#9660;</span></th>
                   <th class="numeric" data-sort="number" data-col="4">Positives <span class="sort-icon">&#9660;</span></th>
                   <th class="numeric" data-sort="percent" data-col="5">Pos % <span class="sort-icon">&#9660;</span></th>
-                  <th class="numeric" data-sort="number" data-col="6">Today +Leads <span class="sort-icon">&#9660;</span></th>
-                  <th class="numeric" data-sort="number" data-col="7">Today +Replies <span class="sort-icon">&#9660;</span></th>
+                  <th class="numeric" data-sort="number" data-col="6">Leads/Reply <span class="sort-icon">&#9660;</span></th>
                 </tr></thead>
                 <tbody>${tableRows}</tbody>
                 <tfoot><tr>
@@ -402,8 +396,7 @@
                   <td class="numeric">${pct(totReplies, totLeads)}</td>
                   <td class="numeric">${fmt(totPositives)}</td>
                   <td class="numeric">${pct(totPositives, totReplies)}</td>
-                  <td class="numeric">${fmt(totLeadsToday)}</td>
-                  <td class="numeric">${fmt(totRepliesToday)}</td>
+                  <td class="numeric">${totReplies > 0 ? Math.round(totLeads / totReplies) : '—'}</td>
                 </tr></tfoot>
               </table>
             </div></div>
