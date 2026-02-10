@@ -1,19 +1,19 @@
 {
   "client": "JT Global",
-  "lastUpdated": "2026-02-10T13:47:25Z",
+  "lastUpdated": "2026-02-10T14:00:57Z",
   "monthCycle": "9th to 8th",
   "months": {
     "M1": {
       "label": "Month 1",
       "dateRange": "Jan 9 - Feb 8, 2026",
       "overview": {
-        "leads": 9294,
+        "leads": 9298,
         "replies": 309,
         "positives": 10,
-        "leadsToday": 1010,
+        "leadsToday": 1018,
         "repliesToday": 4,
         "positivesToday": 0,
-        "emailsSent": 22644
+        "emailsSent": 22652
       },
       "strategy": [
         {
@@ -88,13 +88,13 @@
         },
         {
           "name": "S2a3",
-          "leads": 548,
+          "leads": 552,
           "replies": 8,
           "positives": 1,
-          "leadsToday": 183,
+          "leadsToday": 191,
           "repliesToday": 2,
           "positivesToday": 0,
-          "emailsSent": 720
+          "emailsSent": 728
         },
         {
           "name": "S2b",
