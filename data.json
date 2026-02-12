@@ -1,19 +1,19 @@
 {
   "client": "JT Global",
-  "lastUpdated": "2026-02-11T07:51:02Z",
+  "lastUpdated": "2026-02-12T07:46:13Z",
   "monthCycle": "9th to 8th",
   "months": {
     "M1": {
       "label": "Month 1",
       "dateRange": "Jan 9 - Feb 8, 2026",
       "overview": {
-        "leads": 9300,
-        "replies": 311,
-        "positives": 10,
+        "leads": 9364,
+        "replies": 320,
+        "positives": 11,
         "leadsToday": 0,
         "repliesToday": 0,
         "positivesToday": 0,
-        "emailsSent": 22657
+        "emailsSent": 23637
       },
       "strategy": [
         {
@@ -29,12 +29,12 @@
         {
           "name": "S1a",
           "leads": 654,
-          "replies": 19,
+          "replies": 20,
           "positives": 1,
           "leadsToday": 0,
           "repliesToday": 0,
           "positivesToday": 0,
-          "emailsSent": 1530
+          "emailsSent": 1565
         },
         {
           "name": "S1c",
@@ -44,7 +44,7 @@
           "leadsToday": 0,
           "repliesToday": 0,
           "positivesToday": 0,
-          "emailsSent": 1698
+          "emailsSent": 1730
         },
         {
           "name": "S1d",
@@ -54,7 +54,7 @@
           "leadsToday": 0,
           "repliesToday": 0,
           "positivesToday": 0,
-          "emailsSent": 1847
+          "emailsSent": 1849
         },
         {
           "name": "S2a",
@@ -64,37 +64,37 @@
           "leadsToday": 0,
           "repliesToday": 0,
           "positivesToday": 0,
-          "emailsSent": 1808
+          "emailsSent": 1816
         },
         {
           "name": "S2a1",
           "leads": 591,
-          "replies": 10,
+          "replies": 13,
           "positives": 1,
           "leadsToday": 0,
           "repliesToday": 0,
           "positivesToday": 0,
-          "emailsSent": 1117
+          "emailsSent": 1392
         },
         {
           "name": "S2a2",
-          "leads": 577,
-          "replies": 6,
+          "leads": 581,
+          "replies": 9,
           "positives": 0,
           "leadsToday": 0,
           "repliesToday": 0,
           "positivesToday": 0,
-          "emailsSent": 785
+          "emailsSent": 1028
         },
         {
           "name": "S2a3",
-          "leads": 554,
-          "replies": 8,
+          "leads": 614,
+          "replies": 9,
           "positives": 1,
           "leadsToday": 0,
           "repliesToday": 0,
           "positivesToday": 0,
-          "emailsSent": 732
+          "emailsSent": 1041
         },
         {
           "name": "S2b",
@@ -104,17 +104,17 @@
           "leadsToday": 0,
           "repliesToday": 0,
           "positivesToday": 0,
-          "emailsSent": 2010
+          "emailsSent": 2019
         },
         {
           "name": "S3",
           "leads": 1051,
-          "replies": 38,
-          "positives": 1,
+          "replies": 39,
+          "positives": 2,
           "leadsToday": 0,
           "repliesToday": 0,
           "positivesToday": 0,
-          "emailsSent": 3013
+          "emailsSent": 3062
         },
         {
           "name": "S4a",
@@ -134,7 +134,7 @@
           "leadsToday": 0,
           "repliesToday": 0,
           "positivesToday": 0,
-          "emailsSent": 1941
+          "emailsSent": 1959
         }
       ]
     }
